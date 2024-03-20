@@ -101,7 +101,7 @@ export const updateUserByUUID = async (req, res) => {
 export const getUserByToken = async (token, res, req_id) => {
     try {
         LOGGER(logType.INFO, "Start getUserByTokenController", token, req_id)
-        token = token.split("Bearer ")[1];
+        token = token.split(" ")[1];
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         return decoded
