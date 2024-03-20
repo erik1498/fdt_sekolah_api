@@ -11,7 +11,7 @@ export const getAllSiswas = async (req, res) => {
             data: siswas,
             message: "Get Data Success"
         })
-    } catch (error) {    
+    } catch (error) {
         LOGGER(logType.ERROR, "Error ", error.stack)
         res.status(500).json({
             type: "internalServerError",
@@ -82,7 +82,7 @@ export const deleteSiswaByUUID = async (req, res) => {
 
 export const updateSiswaByUUID = async (req, res) => {
     LOGGER(logType.INFO, "Start updateSiswaByUuidController", null, req.id)
-    try {    
+    try {
         const siswaData = req.body
         const { error, value } = siswaValidation(siswaData)
         if (error) {
